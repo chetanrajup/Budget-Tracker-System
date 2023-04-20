@@ -10,10 +10,38 @@
 </head>
 
 <body>
+	
+	
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	  <!-- Brand -->
+	  <a class="navbar-brand" href="#"> Budget Tracker System </a>
+	
+	  <!-- Toggler/collapsibe Button -->
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	
+	  <!-- Navbar links -->
+	  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" th:href="@{/BudgetTrackerSystem}"> Budget Tracker system</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	
+	
     <div class="container">
         <div class="row">
             <h1> Track the budget </h1>
         </div>
+        
+        <div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/BudgetTrackerSystem/add}" class = "btn btn-primary btn-sm mb-3"> Add New Record</a>
+			</div>
+		</div>
         <table class="table table-striped table-bordered">
 
             <thead class="table-dark">
@@ -31,10 +59,14 @@
             <tbody>
 
                 <tr th:each="bts: ${BudgetTrackerSystem}">
-				<td th:text="${bts.date}"></td>
-				<td th:text="${bts.category}"></td>
-                <td th:text="${bts.description}"></td>
-                <td th:text="${bts.amount}"></td>
+					<td th:text="${bts.date}"></td>
+					<td th:text="${bts.category}"></td>
+	                <td th:text="${bts.description}"></td>
+	                <td th:text="${bts.amount}"></td>
+	                <td>
+						<a th:href = "@{/BudgetTrackerSystem/update/{id} (id = ${bts.id})}" class = "btn btn-primary"> Update </a>
+						<a th:href = "@{/BudgetTrackerSystem/{id} (id = ${bts.id})}" class = "btn btn-danger"> Delete </a>
+					</td>
                 
                 </tr>
 

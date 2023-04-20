@@ -27,6 +27,8 @@ public class BudgetTrackerSystem {
 	
 	@Column(name = "amount", nullable = false)
 	private long amount;
+	
+	public BudgetTrackerSystem() {};
 
 	public long getId() {
 		return id;

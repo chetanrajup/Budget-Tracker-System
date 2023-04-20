@@ -22,6 +22,30 @@ public class BudgetTrackerSystemServiceImpl implements BudgetTrackerSystemServic
 	public List<BudgetTrackerSystem> getAllBugdetTrackerSystemItems(){
 		return budgetTrackerSystemRepo.findAll();
 	}
-	
+
+
+	@Override
+	public BudgetTrackerSystem saveRecord(BudgetTrackerSystem budgetTrackerSystem) {
+		return budgetTrackerSystemRepo.save(budgetTrackerSystem);
+	}
+
+
+	@Override
+	public BudgetTrackerSystem getRecordById(Long id) {
+		return budgetTrackerSystemRepo.findById(id).get();
+	}
+
+
+	@Override
+	public BudgetTrackerSystem updateRecord(BudgetTrackerSystem budgetTrackerSystem) {
+		return budgetTrackerSystemRepo.save(budgetTrackerSystem);
+	}
+
+
+	@Override
+	public void deleteRecordById(Long id) {
+		budgetTrackerSystemRepo.deleteById(id);
+	}	
+		
 }
 
